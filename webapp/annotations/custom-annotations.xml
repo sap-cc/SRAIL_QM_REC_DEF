@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Additional annotations to control smart fields.
+
+-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/QM_DEFECT_RECORD_SRV/$metadata">
+        <edmx:Include Alias="QM_DEFECT_RECORD_SRV" Namespace="QM_DEFECT_RECORD_SRV"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="qm_defect_record_custom_anno">
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_ESTIMATION_EFF_NIT">
+                <!-- configure unit for estimation effort -->
+                <Annotation Term="Org.OData.Measures.V1.Unit" Path="ZZ1_NC_EST_EFF_UNIT_NIT"/>
+            </Annotations>
+
+            <!-- override annotations for ZZ1_NC_REFERENCE_NIT / Bezug -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_REFERENCE_NIT">
+                <!-- Enhancement: use Dropdown/Combobox -->
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+
+            <!-- override Value Help for ZZ1_NC_PSP_SO_NIT / PSP Element  -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_PSP_SO_NIT">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZZ1_QM_PSP"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PSP_SO_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="WBSElement"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WBSDescription"/>
+                                </Record>
+                                <!-- Enhancement: Plant as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <!-- override Value Help for ZZ1_NC_ServiceOrder_NIT / Serviceauftrag  -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_ServiceOrder_NIT">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZZ1_QM_ServiceOrderOp"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_ServiceOrder_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ServiceOrder"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_ServiceOp_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ServiceOrderOperationNumber"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OperationSequenceNumber"/>
+                                </Record>
+                                <!-- Enhancement: PSP as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PSP_SO_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="PSP"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OperationDescription"/>
+                                </Record>
+                                <!-- Enhancement: Plant as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Workcenter"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TextLanguage"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- override Value Help for ZZ1_NC_TST_INSTNAME_NIT / Prüfinstanz  -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_TST_INSTNAME_NIT">
+                <!-- Enhancement: use Dropdown/Combobox -->
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueListWithFixedValues" Bool="true"/>
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="CollectionPath" String="ZZ1_QM_TestInstance"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <!-- Enhancement: Plant as parameter in to prefilter values. Note must be before original property to work as default filter. -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Werks"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_TST_INSTPL_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="Werks"/>
+                                </Record>
+                                <!-- Enhancement: DefectCategory as parameter in to prefilter values. Note must be before original property to work as default filter. -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="DefectCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="DefectCategory"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_TST_INSTDC_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="DefectCategory"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_TST_INSTNAME_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="TstInst"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DefectCategory_Text"/>
+
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- override Value Help for ZZ1_NC_PROD_ORDNR_NIT / Fertigungsauftrag  -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_PROD_ORDNR_NIT">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZZ1_QM_ProductionOrder"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PROD_ORDNR_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrder"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PROD_ORDOP_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrderOperation"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrderOperation_Text"/>
+                                </Record>
+                                <!-- Enhancement: Plant as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_PSP_SO_NIT as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PSP_SO_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="PSP"/>
+                                </Record>
+                                <!-- Enhancement: MainWorkCenter as parameter in & out  -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainWorkCenter"/>
+                                    <PropertyValue Property="ValueListProperty" String="Workcenter"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- override Value Help for ZZ1_NC_PROD_ORDOP_NIT / Fertigungsauftragsvorgang  -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_PROD_ORDOP_NIT">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZZ1_QM_ProductionOrder"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PROD_ORDNR_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrder"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PROD_ORDOP_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrderOperation"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrderOperation_Text"/>
+                                </Record>
+                                <!-- Enhancement: Plant as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_PSP_SO_NIT as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PSP_SO_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="PSP"/>
+                                </Record>
+                                <!-- Enhancement: MainWorkCenter as parameter in & out  -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MainWorkCenter"/>
+                                    <PropertyValue Property="ValueListProperty" String="Workcenter"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- override Value Help for ZZ1_NC_MAT_DOC_NIT / Materialbeleg  -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_MAT_DOC_NIT">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZZ1_QM_MaterialDocument"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_MAT_DOC_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="MaterialDocument"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_MAT_DOCYEAR_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="MaterialDocumentYear"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PurchasingOrder"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_PSP_SO_NIT as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PSP_SO_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="WBSElement"/>
+                                </Record>
+                                <!-- Enhancement: Plant as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- override Value Help for ZZ1_NC_INB_DELV_NIT / Anlieferung  -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_INB_DELV_NIT">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZZ1_QM_Delivery"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_INB_DELV_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="InboundDelivery"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_PSP_SO_NIT as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PSP_SO_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="WBSElement"/>
+                                </Record>
+                                <!-- Enhancement: Plant as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- override Value Help for ZZ1_NC_Material_NIT / Material  -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/Material">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZZ1_QM_Material"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Product_Text"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_PROD_ORDNR_NIT as parameter in -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrder"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PROD_ORDNR_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrder"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_PROD_ORDOP_NIT as parameter in  -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrderOperation"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PROD_ORDOP_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ProductionOrderOperation"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_ServiceOrder_NIT as parameter in  -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ServiceOrder"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_ServiceOrder_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ServiceOrder"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_ServiceOp_NIT as parameter in  -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ServiceOrderOperation"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_ServiceOp_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="ServiceOrderOperation"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_MAT_DOC_NIT as parameter in  -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialDocument"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_MAT_DOC_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="MaterialDocument"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_INB_DELV_NIT as parameter in  -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="InboundDelivery"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_INB_DELV_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="InboundDelivery"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_PSPCO_NIT as parameter in  -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrder"/>
+                                </Record>
+                                <!-- Enhancement: ZZ1_NC_PSP_SO_NIT as parameter in  -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PSP"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_PSP_SO_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="PSP"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- override Value Help for ZZ1_NC_COMPONENT_NIT / Unterkomponente  -->
+            <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_COMPONENT_NIT"
+                         xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Material Components"/>
+                        <PropertyValue Property="CollectionPath" String="ZZ1_QM_MaterialComponents"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_COMPONENT_NIT"/>
+                                    <PropertyValue Property="ValueListProperty" String="BillOfMaterialComponent"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ComponentText"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BillOfMaterialItemNumber"/>
+                                </Record>
+                                <!-- Enhancement: Plant as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <!-- Enhancement: Material as parameter in & out -->
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

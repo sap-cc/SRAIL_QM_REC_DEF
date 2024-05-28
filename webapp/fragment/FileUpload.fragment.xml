@@ -1,0 +1,64 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+>
+    <!--    Note: We had to use UploadCollection instead of UploadSet because the response data of event are not available in our UI5 version. -->
+    <UploadCollection
+            id="attachmentServiceFileUpload"
+            uploadUrl="/sap/opu/odata/sap/CV_ATTACHMENT_SRV/OriginalContentSet"
+            instantUpload="true"
+            multiple="true"
+            maximumFilenameLength="255"
+            mimeType="image/png,image/jpeg,image/bmp,application/pdf,application/x-pdf"
+            sameFilenameAllowed="true"
+            items="{
+                path : '__attachmentData>/items',
+                templateShareable : 'true',
+                sorter: {
+                    path: 'createdAt',
+                    descending: true
+                }
+            }"
+            showSeparators="All"
+            beforeUploadStarts="onBeforeStartAttachmentUpload"
+            fileDeleted="onDeleteAttachmentUpload"
+            uploadComplete="onCompletedAttachmentUpload"
+            mode="None"
+            uploadEnabled="{= !${IsActiveEntity}}"
+    >
+        <toolbar>
+            <OverflowToolbar id="myId" >
+                <ToolbarSpacer/>
+                <Button visible="{device>/hasCameraSupport}" enabled="{= !${IsActiveEntity}}" text="{i18n>defect_attachment_take_picture_btn}" press="onTakePictureAsAttachment" type="Transparent"/>
+                <UploadCollectionToolbarPlaceholder/>
+            </OverflowToolbar>
+        </toolbar>
+        <items>
+            <UploadCollectionItem
+                    thumbnailUrl="{__attachmentData>thumbnailUrl}"
+                    documentId="{__attachmentData>FileId}"
+                    fileName="{__attachmentData>Filename}"
+                    enableEdit="false"
+                    visibleEdit="false"
+                    enableDelete="{= !${IsActiveEntity}}"
+                    visibleDelete="{= !${IsActiveEntity}}"
+                    attributes="{path : '__attachmentData>attributes', templateShareable : 'true'}"
+                    markers="{path : '__attachmentData>markers', templateShareable : 'true'}"
+            >
+                <attributes>
+                    <ObjectAttribute
+                            title="{__attachmentData>title}"
+                            text="{path : '__attachmentData>text'}"
+                            active="{__attachmentData>active}"
+                            visible="{__attachmentData>visible}"
+                    />
+                </attributes>
+                <markers>
+                    <ObjectMarker
+                            type="{__attachmentData>type}"
+                    />
+                </markers>
+            </UploadCollectionItem>
+        </items>
+    </UploadCollection>
+</core:FragmentDefinition>

@@ -1,0 +1,31 @@
+specVersion: "3.1"
+metadata:
+  name: zqm.nc.recdefectfast
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: http://sap-s4d:443
+            client: "100"
+            destination: sap-s4d-100-http
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: zqm.nc.recdefectfast
+        ui5Theme: sap_fiori_3

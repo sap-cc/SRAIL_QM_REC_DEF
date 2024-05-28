@@ -1,0 +1,57 @@
+<mvc:View
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:semantic="sap.f.semantic"
+        controllerName="zqm.nc.recdefectfast.controller.Record"
+        displayBlock="true"
+>
+    <semantic:SemanticPage
+            headerPinnable="true"
+            toggleHeaderOnTitleClick="false"
+            preserveHeaderStateOnScroll="false"
+            showFooter="{= ${IsActiveEntity} === false}"
+    >
+        <!-- Title Heading -->
+        <semantic:titleHeading>
+            <Title text="{i18n>defect}: {Defect}"/>
+        </semantic:titleHeading>
+
+        <!-- Title SubHeading -->
+        <semantic:titleExpandedContent>
+            <Text text="{to_DefectCategory/DefectCategory_Text}"/>
+        </semantic:titleExpandedContent>
+
+        <!-- Title SubHeading -->
+        <semantic:titleMainAction>
+            <!--            <semantic:TitleMainAction text="Sperrkarte" press="onPrintBlockingCard" visible="{IsActiveEntity}"/>-->
+            <semantic:TitleMainAction text="{i18n>defect_create_new_action}" press="onCreateDefect" visible="{= ${IsActiveEntity} === true}"/>
+        </semantic:titleMainAction>
+
+        <semantic:titleCustomTextActions>
+            <Button text="{i18n>blocking_card_action_print}" press="onPrintBlockingCard" visible="{= ${IsActiveEntity} === true}"/>
+        </semantic:titleCustomTextActions>
+
+        <semantic:editAction>
+            <semantic:EditAction text="{i18n>common_action_edit}" press="onEdit" visible="{= ${IsActiveEntity} === true}"/>
+        </semantic:editAction>
+
+        <semantic:content>
+            <Panel id="form-fragment-content"  class="sapFSemanticPageAlignContent" width="auto" />
+        </semantic:content>
+
+        <!-- Semantic Footer Buttons -->
+        <semantic:footerMainAction>
+            <semantic:FooterMainAction text="{i18n>common_action_save}" press="onSave"/>
+        </semantic:footerMainAction>
+
+        <semantic:footerCustomActions>
+            <Button id="cancelAction" text="{i18n>common_action_cancel}" press="onDiscardDraft" visible="{= ${IsActiveEntity} === false}"/>
+        </semantic:footerCustomActions>
+
+        <!-- Semantic Footer Message Indicator -->
+        <semantic:messagesIndicator>
+            <semantic:MessagesIndicator press="onMessagePopoverPress"/>
+        </semantic:messagesIndicator>
+
+    </semantic:SemanticPage>
+</mvc:View>

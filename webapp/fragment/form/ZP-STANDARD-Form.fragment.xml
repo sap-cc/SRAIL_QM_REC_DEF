@@ -1,0 +1,295 @@
+<!-- Defect Category: Production, Layout Variant: Standard -->
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+        xmlns:smartField="sap.ui.comp.smartfield"
+>
+    <VBox class="sapUiCompSmartForm">
+        <f:SimpleForm
+                id="idForm"
+                class="editableForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="2"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+                title="{i18n>defect_form_section_general}"
+        >
+            <!-- PSP -->
+            <Label text="{ZZ1_NC_PSP_SO_NIT/#@sap:label}"/>
+            <smartField:SmartField
+                controlContext="Form"
+                fieldGroupIds="template"
+                value="{ZZ1_NC_PSP_SO_NIT}"
+                textInEditModeSource="ValueList"
+                contextEditable="false"
+                showSuggestion="{device>/isNoPhone}"
+                valueListChanged="valueListChanged"
+            />
+
+            <!-- Fertigungsauftrag / Fertigungsauftragsvorgang -->
+            <Label text="{ZZ1_NC_PROD_ORDNR_NIT/#@sap:label} / {ZZ1_NC_PROD_ORDOP_NIT/#@sap:label}"
+                   required="true"/>
+
+            <!-- Fertigungsauftrag -->
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation,template"
+                    value="{ZZ1_NC_PROD_ORDNR_NIT}"
+                    textInEditModeSource="ValueList"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    mandatory="true"
+                    app:mandatory="true"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            >
+                <smartField:layoutData>
+                    <l:GridData span="XL3 L3 M4 S6"/>
+                </smartField:layoutData>
+                <smartField:configuration>
+                    <smartField:Configuration displayBehaviour="descriptionAndId"/>
+                </smartField:configuration>
+            </smartField:SmartField>
+
+            <!-- Fertigungsauftragsvorgang -->
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation,template"
+                    value="{ZZ1_NC_PROD_ORDOP_NIT}"
+                    textInEditModeSource="ValueList"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    mandatory="true"
+                    app:mandatory="true"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            >
+                <smartField:layoutData>
+                    <l:GridData span="XL3 L3 M4 S6"/>
+                </smartField:layoutData>
+                <smartField:configuration>
+                    <smartField:Configuration displayBehaviour="descriptionAndId"/>
+                </smartField:configuration>
+            </smartField:SmartField>
+
+            <!-- Ausbau möglich -->
+            <Label text="{ZZ1_NC_REMOVED_NIT/#@sap:label}"/>
+            <Switch
+                    state="{ZZ1_NC_REMOVED_NIT}"
+                    customTextOn="{i18n>common_text_yes}"
+                    customTextOff="{i18n>common_text_no}"
+                    enabled="{= !${IsActiveEntity}}"
+            >
+                <layoutData>
+                    <FlexItemData growFactor="1"/>
+                </layoutData>
+            </Switch>
+
+        </f:SimpleForm>
+        <f:SimpleForm
+                id="idForm2"
+                class="editableForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="2"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+                title="{i18n>defect_form_section_defect}"
+        >
+            <!-- Fehlercode / Fehlercodegruppe -->
+            <Label text="{DefectCodeGroup/#@sap:label} / {DefectCode/#@sap:label}" required="true"/>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{DefectCodeGroup}"
+                    textInEditModeSource="ValueList"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    mandatory="true"
+                    app:mandatory="true"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            >
+                <smartField:layoutData>
+                    <l:GridData span="XL3 L3 M4 S6"/>
+                </smartField:layoutData>
+                <smartField:configuration>
+                    <smartField:Configuration displayBehaviour="descriptionAndId"/>
+                </smartField:configuration>
+            </smartField:SmartField>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{DefectCode}"
+                    textInEditModeSource="ValueList"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    mandatory="true"
+                    app:mandatory="true"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            >
+                <smartField:layoutData>
+                    <l:GridData span="XL3 L3 M4 S6"/>
+                </smartField:layoutData>
+                <smartField:configuration>
+                    <smartField:Configuration displayBehaviour="descriptionAndId"/>
+                </smartField:configuration>
+            </smartField:SmartField>
+
+            <!-- Fehlerbeschreibung -->
+            <Label text="{ZZ1_NC_DEFECT_TEXT_NIT/#@sap:label}" required="true"/>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{ZZ1_NC_DEFECT_TEXT_NIT}"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    mandatory="true"
+                    app:mandatory="true"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            />
+
+            <!-- Detailbeschreibung des Fehlers -->
+            <Label text="{to_DefectLongTextTP/DefectLongText/#@sap:label}"/>
+            <TextArea
+                    value="{to_DefectLongTextTP/DefectLongText}"
+                    growing="true"
+                    editable="{= !${IsActiveEntity}}"
+            />
+
+            <!-- Fehlerhaftes Material -->
+            <Label text="{Material/#@sap:label}"/>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{Material}"
+                    textInEditModeSource="ValueList"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            >
+                <smartField:configuration>
+                    <smartField:Configuration displayBehaviour="descriptionAndId"/>
+                </smartField:configuration>
+            </smartField:SmartField>
+
+            <!-- Seriennummer -->
+            <Label text="{ZZ1_NC_SER_NUM_NIT/#@sap:label}"/>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{ZZ1_NC_SER_NUM_NIT}"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            />
+
+            <!-- Unterkomponente -->
+            <Label text="{ZZ1_NC_COMPONENT_NIT/#@sap:label}"/>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{ZZ1_NC_COMPONENT_NIT}"
+                    textInEditModeSource="ValueList"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            >
+                <smartField:configuration>
+                    <smartField:Configuration displayBehaviour="descriptionAndId"/>
+                </smartField:configuration>
+            </smartField:SmartField>
+
+            <!-- Text zur Unterkomponente -->
+            <Label text="{ZZ1_NC_SUB_COMPONENT_T_NIT/#@sap:label}"/>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{ZZ1_NC_SUB_COMPONENT_T_NIT}"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            />
+
+            <!-- Serialnummer Unterkomponente -->
+            <Label text="{ZZ1_NC_SUB_COMPONENT_S_NIT/#@sap:label}"/>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{ZZ1_NC_SUB_COMPONENT_S_NIT}"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            />
+
+            <!-- Menge / Einheit -->
+            <Label text="{DefectiveQuantity/#@sap:label} / {DefectiveQuantityUnit/#@sap:label}" required="true"/>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{DefectiveQuantity}"
+                    textInEditModeSource="ValueList"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    mandatory="true"
+                    app:mandatory="true"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            />
+
+            <!-- Priorität -->
+            <Label text="{ZZ1_NC_PRIORITYPRC_NIT/#@sap:label}" required="true"/>
+            <RadioButtonGroup
+                fieldGroupIds="validation"
+                buttons="{vh>/ZZ1_QM_PriorityHelp}"
+                select=".onSelectRadioButton($event, 'ZZ1_NC_PRIORITYPRC_NIT')"
+                columns="3"
+                editable="{= !${IsActiveEntity}}"
+                app:name="ZZ1_NC_PRIORITYPRC_NIT"
+                app:mandatory="true"
+            >
+                <buttons>
+                    <RadioButton
+                        text="{vh>PriorityCode_Text}"
+                        app:value="{path: 'vh>PriorityCode'}"
+                        selected="{parts: [{path: 'vh>PriorityCode'}, {path: 'ZZ1_NC_PRIORITYPRC_NIT'}], formatter: '.isValueEqual'}"
+                    />
+                </buttons>
+            </RadioButtonGroup>
+
+            <!-- Aufwandsabschätzung / Einheit -->
+            <Label text="{ZZ1_NC_ESTIMATION_EFF_NIT/#@sap:label}"/>
+            <smartField:SmartField
+                    controlContext="Form"
+                    fieldGroupIds="validation"
+                    value="{ZZ1_NC_ESTIMATION_EFF_NIT}"
+                    textInEditModeSource="ValueList"
+                    contextEditable="{= !${IsActiveEntity}}"
+                    showSuggestion="{device>/isNoPhone}"
+                    valueListChanged="valueListChanged"
+            />
+        </f:SimpleForm>
+
+        <core:Fragment fragmentName="zqm.nc.recdefectfast.fragment.FileUpload" type="XML" />
+    </VBox>
+</core:FragmentDefinition>

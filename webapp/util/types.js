@@ -1,0 +1,1 @@
+"use strict";sap.ui.define(["sap/ui/base/Object"],function(e){var t=function t(a,n){return e.isA(a,n.getMetadata().getName())};var a={__esModule:true};a.isInstanceOf=t;return a});

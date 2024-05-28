@@ -1,0 +1,164 @@
+{
+  "services": {
+    "LaunchPage": {
+      "adapter": {
+        "config": {
+          "groups": [
+            {
+              "id": "sample_group",
+              "title": "Sample Applications",
+              "isPreset": true,
+              "isVisible": true,
+              "isGroupLocked": false,
+              "tiles": [
+                {
+                  "id": "recordDefectFast-ZQ",
+                  "size": "1x1",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "chipId": "catalogTile_00",
+                    "title": "Fast: Record quality assurance defect",
+                    "subtitle": "STAP",
+                    "icon": "sap-icon://activity-individual",
+                    "targetURL": "#Defect-recordFast?DefectCategory=ZQ&ZZ1_NC_INST_SPCCG_NIT=QFZG&DefectiveQuantityUnit=ST"
+                  }
+                },
+                {
+                  "id": "recordDefectFast-ZQ-SRSDE",
+                  "title": "",
+                  "size": "1x1",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "chipId": "catalogTile_00",
+                    "title": "Fast: Record quality assurance defect",
+                    "subtitle": "SRS-DE",
+                    "icon": "sap-icon://activity-individual",
+                    "targetURL": "#Defect-recordFast?DefectCategory=ZQ&ZZ1_NC_INST_SPCCG_NIT=QFZG&DefectiveQuantityUnit=ST&ZZ1_NC_LAYOUT_VARIANT_NIT=SERVICE"
+                  }
+                },
+                {
+                  "id": "recordDefectFast-ZP",
+                  "title": "",
+                  "size": "1x1",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "chipId": "catalogTile_00",
+                    "title": "Fast: Record production defect",
+                    "subtitle": "STAP",
+                    "icon": "sap-icon://activity-individual",
+                    "targetURL": "#Defect-recordFast?DefectCategory=ZP&ZZ1_NC_REMOVED_NIT=true&DefectiveQuantityUnit=ST"
+                  }
+                },
+                {
+                  "id": "recordDefectFast-ZP-SRSDE",
+                  "title": "",
+                  "size": "1x1",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "chipId": "catalogTile_00",
+                    "title": "Fast: Record production defect",
+                    "subtitle": "SRS-DE",
+                    "icon": "sap-icon://activity-individual",
+                    "targetURL": "#Defect-recordFast?DefectCategory=ZP&ZZ1_NC_REMOVED_NIT=true&DefectiveQuantityUnit=ST&ZZ1_NC_LAYOUT_VARIANT_NIT=SERVICE"
+                  }
+                },
+                {
+                  "id": "recordDefectFast-ZL",
+                  "title": "",
+                  "size": "1x1",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "chipId": "catalogTile_00",
+                    "title": "Fast: Record warehouse defect",
+                    "subtitle": "STAP",
+                    "icon": "sap-icon://activity-individual",
+                    "targetURL": "#Defect-recordFast?DefectCategory=ZL&DefectiveQuantityUnit=ST"
+                  }
+                },
+                {
+                  "id": "recordDefectFast-ZL-SRSDE",
+                  "title": "",
+                  "size": "1x1",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "chipId": "catalogTile_00",
+                    "title": "Fast: Record warehouse defect",
+                    "subtitle": "SRS-DE",
+                    "icon": "sap-icon://activity-individual",
+                    "targetURL": "#Defect-recordFast?DefectCategory=ZL&DefectiveQuantityUnit=ST&ZZ1_NC_LAYOUT_VARIANT_NIT=SERVICE"
+                  }
+                },
+                {
+                  "id": "recordDefectFast-ZI",
+                  "title": "",
+                  "size": "1x1",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "chipId": "catalogTile_00",
+                    "title": "Fast: Record commissioning defect",
+                    "subtitle": "STAP",
+                    "icon": "sap-icon://activity-individual",
+                    "targetURL": "#Defect-recordFast?DefectCategory=ZI&ZZ1_NC_INST_SPCCG_NIT=QFZG&DefectiveQuantityUnit=ST"
+                  }
+                },
+                {
+                  "id": "recordDefectFast-ZI-SRSDE",
+                  "title": "",
+                  "size": "1x1",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "chipId": "catalogTile_00",
+                    "title": "Fast: Record commissioning defect",
+                    "subtitle": "SRS-DE",
+                    "icon": "sap-icon://activity-individual",
+                    "targetURL": "#Defect-recordFast?DefectCategory=ZI&ZZ1_NC_INST_SPCCG_NIT=QFZG&DefectiveQuantityUnit=ST&ZZ1_NC_LAYOUT_VARIANT_NIT=SERVICE"
+                  }
+                },
+                {
+                  "id": "recordDefectFast-ZB",
+                  "title": "",
+                  "size": "1x1",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "chipId": "catalogTile_00",
+                    "title": "Fast: Record BRCC defect",
+                    "subtitle": "SRS-DE",
+                    "icon": "sap-icon://activity-individual",
+                    "targetURL": "#Defect-recordFast?DefectCategory=ZB&ZZ1_NC_INST_SPCCG_NIT=QDRG&ZZ1_NC_MAIN_SYS_GRP_NIT=E&ZZ1_NC_CauseICG_NIT=QVAB&DefectiveQuantityUnit=ST"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "NavTargetResolution": {
+      "config": {
+        "enableClientSideTargetResolution": true
+      }
+    },
+    "ClientSideTargetResolution": {
+      "adapter": {
+        "config": {
+          "inbounds": {
+            "recdefectfast": {
+              "semanticObject": "Defect",
+              "action": "recordFast",
+              "title": "Record Defect",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              },
+              "resolutionResult": {
+                "applicationType": "SAPUI5",
+                "additionalInformation": "SAPUI5.Component=zqm.nc.recdefectfast",
+                "url": "/"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

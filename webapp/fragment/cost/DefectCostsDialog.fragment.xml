@@ -1,0 +1,100 @@
+<!-- Use stable and unique id's!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <Dialog id="idDefectCostsDialog" title="Defect Costs TODO" contentWidth="100%">
+        <content>
+            <VBox id="idDefectCostsDialogVbox" class="sapUiSmallMargin">
+                <f:SimpleForm
+                    id="idDefectCostsDialogSimpleForm"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false">
+                    <f:content>
+                        <Label id="idDefectCostsDialogSimpleFormPernrLabel" text="Employee Number TODO"/>
+                        <Input id="idDefectCostsDialogSimpleFormPernrInput" value="{employee/Pernr}"/>
+                        <Label id="idDefectCostsDialogSimpleFormKostlLabel" text="Cost Center TODO"/>
+                        <Text id="idDefectCostsDialogSimpleFormKostlText" text="{employee/Kostl}"/>
+                        <Label id="idDefectCostsDialogSimpleFormLstarLabel" text="Activity Type TODO"/>
+                        <Text id="idDefectCostsDialogSimpleFormLstarText" text="{employee/Lstar}"/>
+                    </f:content>
+                </f:SimpleForm>
+
+                <Table id="idDefectCostsDialogTable" items="{/data}">
+                    <columns>
+                        <Column>
+                            <Label text="Date"/>
+                        </Column>
+                        <Column>
+                            <Label text="Number of Hours"/>
+                        </Column>
+                        <Column>
+                            <Label text="Error Cost Reason"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{
+                                    path: 'Workdate',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        style: 'short'
+                                    }
+                                }"/>
+                                <TimePicker
+                                    id="TP6"
+                                    valueFormat="HH:mm"
+                                    displayFormat="HH:mm"
+                                    maskMode="On"
+                                    value="{
+                                        path: 'Catshours',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: {
+                                            style: 'short'
+                                        }
+                                }"
+                                />
+
+
+                                <Input
+                                    value="{
+                                    path: 'Catshours',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        style: 'short'
+                                    }
+                                }"
+                                />
+                                <Input value="{LASTNAME}" editable="false" class="InputStyle" maxLength="50"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+        <buttons>
+            <Button
+                id="idDefectCostsDialogSaveButton"
+                text="Save TODO"
+                press="saveDefectCosts"
+                type="Emphasized"
+            />
+            <Button
+                id="idDefectCostsDialogCancelButton"
+                text="Cancel"
+                press="cancelDefectCosts"
+            />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

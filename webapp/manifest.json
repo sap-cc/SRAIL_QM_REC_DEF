@@ -1,0 +1,174 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+        "id": "zqm.nc.recdefectfast",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{app_title}}",
+        "description": "{{app_description}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/QM_DEFECT_RECORD_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "QM_DEFECT_RECORD_ANNO_MDL",
+                        "localAnnotations",
+                        "customAnnotations"
+                    ],
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "QM_DEFECT_RECORD_ANNO_MDL": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='QM_DEFECT_RECORD_ANNO_MDL',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/QM_DEFECT_RECORD_ANNO_MDL.xml"
+                }
+            },
+            "localAnnotations": {
+                "uri": "annotations/annotations.xml",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "annotations/annotations.xml"
+                }
+            },
+            "customAnnotations": {
+                "uri": "annotations/custom-annotations.xml",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "annotations/custom-annotations.xml"
+                }
+            },
+            "defectManageService": {
+                "uri": "/sap/opu/odata/sap/ZQM_DEFECT_RECORD_REDEF_SRV/",
+                "type": "OData",
+                "settings": {
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "attachmentService": {
+                "uri": "/sap/opu/odata/sap/CV_ATTACHMENT_SRV/",
+                "type": "OData",
+                "settings": {
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "sourceTemplate": {
+            "id": "@sap/ux-app-migrator:freestyle",
+            "version": "1.13.5",
+            "toolsId": "d4446888-db56-486c-a230-e402e550bcf2"
+        }
+    },
+    "sap.ui": {
+        "fullWidth": false,
+        "technology": "UI5",
+        "icons": {},
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "zqm.nc.recdefectfast.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.90.7",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.ui.layout": {},
+                "sap.m": {}
+            }
+        },
+        "handleValidation": true,
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zqm.nc.recdefectfast.i18n.i18n"
+                }
+            },
+            "defectCategoryData": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "preload": false
+            },
+            "": {
+                "preload": true,
+                "dataSource": "mainService",
+                "settings": {
+                    "metadataUrlParams": {},
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": true
+                }
+            },
+            "odata-manage-defect": {
+                "preload": true,
+                "dataSource": "defectManageService",
+                "settings": {
+                    "metadataUrlParams": {},
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": true
+                }
+            },
+            "odata-attachment": {
+                "preload": true,
+                "dataSource": "attachmentService"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "style/custom.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "zqm.nc.recdefectfast.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "async": true
+            },
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "main",
+                    "target": "main"
+                },
+                {
+                    "pattern": "{defectRecordPath}",
+                    "name": "record",
+                    "target": "record"
+                }
+            ],
+            "targets": {
+                "main": {
+                    "viewId": "main",
+                    "viewName": "Main"
+                },
+                "record": {
+                    "viewId": "record",
+                    "viewName": "Record"
+                }
+            }
+        }
+    }
+}

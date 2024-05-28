@@ -1,0 +1,1 @@
+"use strict";sap.ui.define(["sap/ui/core/mvc/Controller"],function(e){var t=e.extend("zqm.nc.recdefectfast.controller.App",{onInit:function e(){this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass())}});return t});

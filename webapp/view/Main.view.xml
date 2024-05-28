@@ -1,0 +1,17 @@
+<mvc:View
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        controllerName="zqm.nc.recdefectfast.controller.Main"
+        displayBlock="true"
+        busy="{/loading}"
+>
+    <MessagePage
+            visible="{= !${/loading} }"
+            busy="false"
+            showHeader="false"
+            icon="sap-icon://error"
+            text="Error"
+            description="{/error}"
+            enableFormattedText="true"
+    />
+</mvc:View>
