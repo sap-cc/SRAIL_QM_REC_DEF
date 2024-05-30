@@ -305,7 +305,7 @@ sap.ui.define(["sap/m/Button", "sap/m/CheckBox", "sap/m/Dialog", "sap/m/Label", 
                 successMsg: ""
               }), function () {
                 return _await(_this8.oOwnerComponent.getDraftController().prepareDraftEntity(oContext), function () {
-                  return _await(_this8.oOwnerComponent.getDraftController().activateDraftEntity(oContext, "to_DefectCategory,to_DefectLongTextTP"), function (_this7$oOwnerComponen) {
+                  return _await(_this8.oOwnerComponent.getDraftController().activateDraftEntity(oContext, "to_DefectLongTextTP"), function (_this7$oOwnerComponen) {
                     var _ref2 = _this7$oOwnerComponen,
                         oEntryContext = _ref2.context;
 
@@ -552,7 +552,7 @@ sap.ui.define(["sap/m/Button", "sap/m/CheckBox", "sap/m/Dialog", "sap/m/Label", 
           var aNavigationPropertiesForCustomFields = aNavigationPropertiesForText.filter(function (item) {
             return item.startsWith("to_ZZ1");
           });
-          var aNavigationPropertiesForStandardFields = ["to_Product", "to_DefectCode", "to_DefectCodeGroup", "to_DefectCategory", "to_DefectLongTextTP", "to_ProductionOrderStdVH", "to_ProdnOrdOpBySemKeyStdVH", "to_StorageLocation"];
+          var aNavigationPropertiesForStandardFields = ["to_Product", "to_DefectCode", "to_DefectCodeGroup", "to_DefectLongTextTP", "to_ProductionOrderStdVH", "to_ProdnOrdOpBySemKeyStdVH", "to_StorageLocation"];
           var aNavigationPropertiesToExpand = [].concat(aNavigationPropertiesForCustomFields, aNavigationPropertiesForStandardFields).sort(); // read defect
 
           _this18.oODataModel.read(sDefectRecordPath, {

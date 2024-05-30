@@ -17,9 +17,11 @@
         </semantic:titleHeading>
 
         <!-- Title SubHeading -->
-        <semantic:titleExpandedContent>
-            <Text text="{to_DefectCategory/DefectCategory_Text}"/>
-        </semantic:titleExpandedContent>
+        <!-- CPC - PRUEBA COMENTAR 29.05 -->
+         <semantic:titleExpandedContent>
+             <Text text="{DefectCategoryText}"/>
+            <!-- <Text text="{to_DefectCategory/DefectCategory_Text}"/> -->
+        </semantic:titleExpandedContent> 
 
         <!-- Title SubHeading -->
         <semantic:titleMainAction>

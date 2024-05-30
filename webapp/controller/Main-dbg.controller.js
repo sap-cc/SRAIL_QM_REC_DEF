@@ -142,7 +142,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel", "zqm/nc/recdefectfast/controller/B
           var oPredefinedValuesMerged = _objectSpread(_objectSpread({
             ZZ1_NC_LAYOUT_VARIANT_NIT: "STANDARD"
           }, oPredefinedValuesFromStartup), oPredefinedValuesFromRoute);
-
+debugger;
           if (!oPredefinedValuesMerged.DefectCategory) {
             _this2.oViewModel.setData({
               loading: false,
@@ -152,7 +152,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel", "zqm/nc/recdefectfast/controller/B
             return;
           }
 
-          _this2.oODataModel.read("/I_DefectCategory('".concat(oPredefinedValuesMerged.DefectCategory, "')"), {
+          _this2.oODataModel.read("/C_DefectCatVH('".concat(oPredefinedValuesMerged.DefectCategory, "')"), {
             success: _async(function () {
               // create draft & redirect to form page
               return _continueIgnored(_catch(function () {

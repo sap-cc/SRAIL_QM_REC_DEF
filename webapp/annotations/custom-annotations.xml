@@ -97,7 +97,7 @@
                 </Annotation>
             </Annotations>
 
-            <!-- override Value Help for ZZ1_NC_TST_INSTNAME_NIT / Prüfinstanz  -->
+            <!-- override Value Help for ZZ1_NC_TST_INSTNAME_NIT / Prï¿½finstanz  -->
             <Annotations Target="QM_DEFECT_RECORD_SRV.C_DefectRecordType/ZZ1_NC_TST_INSTNAME_NIT">
                 <!-- Enhancement: use Dropdown/Combobox -->
                 <Annotation Term="com.sap.vocabularies.Common.v1.ValueListWithFixedValues" Bool="true"/>
@@ -262,7 +262,7 @@
                         <PropertyValue Property="SearchSupported" Bool="false"/>
                         <PropertyValue Property="Parameters">
                             <Collection>
-                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                 <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
                                     <PropertyValue Property="LocalDataProperty" PropertyPath="ZZ1_NC_INB_DELV_NIT"/>
                                     <PropertyValue Property="ValueListProperty" String="InboundDelivery"/>
                                 </Record>
@@ -338,7 +338,7 @@
                                     <PropertyValue Property="ValueListProperty" String="MaterialDocument"/>
                                 </Record>
                                 <!-- Enhancement: ZZ1_NC_INB_DELV_NIT as parameter in  -->
-                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                              <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
                                     <PropertyValue Property="ValueListProperty" String="InboundDelivery"/>
                                 </Record>
                                 <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
