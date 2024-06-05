@@ -145,7 +145,7 @@
                                 <PropertyPath>DefectiveQuantity_fc</PropertyPath>
                                 <PropertyPath>DefectiveQuantityUnit</PropertyPath>
                                 <PropertyPath>DefectiveQuantityUnit_fc</PropertyPath>
-                                <PropertyPath>to_Product/Product_Text</PropertyPath>
+                                <!-- <PropertyPath>to_Product/Product_Text</PropertyPath> -->
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="TargetEntities">
@@ -231,7 +231,7 @@
                                 <PropertyPath>DefectiveQuantity_fc</PropertyPath>
                                 <PropertyPath>DefectiveQuantityUnit</PropertyPath>
                                 <PropertyPath>DefectiveQuantityUnit_fc</PropertyPath>
-                                <PropertyPath>to_Product/Product_Text</PropertyPath>
+                                <!-- <PropertyPath>to_Product/Product_Text</PropertyPath> -->
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="TargetEntities">
@@ -271,12 +271,12 @@
                                 <PropertyPath>DefectCode</PropertyPath>
                             </Collection>
                         </PropertyValue>
-                        <PropertyValue Property="TargetProperties">
+                        <!-- <PropertyValue Property="TargetProperties">
                             <Collection>
                                 <PropertyPath>to_DefectCode/DefectCode_Text</PropertyPath>
                                 <PropertyPath>to_DefectCodeGroup/DefectCodeGroup_Text</PropertyPath>
                             </Collection>
-                        </PropertyValue>
+                        </PropertyValue> -->
                     </Record>
                 </Annotation>
                 <Annotation Term="com.sap.vocabularies.Common.v1.SideEffects" Qualifier="DefectCodeGroupChanged">
@@ -286,11 +286,11 @@
                                 <PropertyPath>DefectCodeGroup</PropertyPath>
                             </Collection>
                         </PropertyValue>
-                        <PropertyValue Property="TargetProperties">
+                        <!-- <PropertyValue Property="TargetProperties">
                             <Collection>
                                 <PropertyPath>to_DefectCode/DefectCode_Text</PropertyPath>
                             </Collection>
-                        </PropertyValue>
+                        </PropertyValue> -->
                     </Record>
                 </Annotation>
                 <Annotation Term="UI.FieldGroup" Qualifier="DefectData">
@@ -436,7 +436,7 @@
                             <Collection>
                                 <PropertyPath>_it/to_Defect/Material</PropertyPath>
                                 <PropertyPath>_it/to_Defect/Material_fc</PropertyPath>
-                                <PropertyPath>_it/to_Defect/to_Product/Product_Text</PropertyPath>
+                                <!-- <PropertyPath>_it/to_Defect/to_Product/Product_Text</PropertyPath> -->
                                 <PropertyPath>_it/to_Defect/Batch</PropertyPath>
                                 <PropertyPath>_it/to_Defect/Batch_fc</PropertyPath>
                                 <PropertyPath>_it/to_Defect/DefectiveQuantity</PropertyPath>

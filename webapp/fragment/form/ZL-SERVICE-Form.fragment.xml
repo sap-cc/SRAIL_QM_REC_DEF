@@ -259,7 +259,7 @@
                     valueListChanged="valueListChanged"
             />
 
-            <!-- Priorität -->
+            <!-- Prioritï¿½t -->
             <Label text="{ZZ1_NC_PRIORITYPRC_NIT/#@sap:label}" required="true"/>
             <RadioButtonGroup
                 fieldGroupIds="validation"

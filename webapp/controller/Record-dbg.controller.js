@@ -552,7 +552,7 @@ sap.ui.define(["sap/m/Button", "sap/m/CheckBox", "sap/m/Dialog", "sap/m/Label", 
           var aNavigationPropertiesForCustomFields = aNavigationPropertiesForText.filter(function (item) {
             return item.startsWith("to_ZZ1");
           });
-          var aNavigationPropertiesForStandardFields = ["to_Product", "to_DefectCode", "to_DefectCodeGroup", "to_DefectLongTextTP", "to_ProductionOrderStdVH", "to_ProdnOrdOpBySemKeyStdVH", "to_StorageLocation"];
+          var aNavigationPropertiesForStandardFields = ["to_DefectLongTextTP", "to_ProductionOrderStdVH", "to_ProdnOrdOpBySemKeyStdVH"];
           var aNavigationPropertiesToExpand = [].concat(aNavigationPropertiesForCustomFields, aNavigationPropertiesForStandardFields).sort(); // read defect
 
           _this18.oODataModel.read(sDefectRecordPath, {
